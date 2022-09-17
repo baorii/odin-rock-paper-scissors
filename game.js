@@ -13,6 +13,32 @@ function getComputerMove() {
         default: 
             move = "Rock"; break;
     }
+    return move
 }
 
 computerMove = getComputerMove()
+
+/*Obtaining Player's Move*/
+function getPlayerMove() {
+    let check = true
+    let x 
+    while(check) {
+        x = prompt("Enter your move: Rock, Paper or Sciccors")
+        move = x.toLowerCase
+        switch (move) {
+            case "rock": 
+                check=false; break;
+            case "paper": 
+                check=false; break;
+            case "scissors": 
+                check=false; break;
+            default: 
+                 break;
+    }
+}
+    return move
+}
+
+/*Deciding Winner*/
+
+/*Playing multiple rounds*/
