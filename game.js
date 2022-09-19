@@ -16,8 +16,6 @@ function getComputerMove() {
     return move
 }
 
-computerMove = getComputerMove()
-
 /*Obtaining Player's Move*/
 function getPlayerMove() {
     let check = true
@@ -69,6 +67,17 @@ function decideWinner(computerMove, playerMove) {
             break;  
         default: break;
     }
+    return winner;
 }
 
 /*Playing multiple rounds*/
+function playRound(rounds) {
+    for(let i=0; i<rounds; i++) {
+        let x = getComputerMove()
+        let y = getPlayerMove()
+
+        let winner = decideWinner(x,y)
+        console.log(winner)
+    }
+}
+
