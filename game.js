@@ -40,5 +40,35 @@ function getPlayerMove() {
 }
 
 /*Deciding Winner*/
+function decideWinner(computerMove, playerMove) {
+    let winner="";
+    switch (computerMove) {
+        case "rock":
+            if (playerMove == "rock") {
+                winner="draw"; }
+            if (playerMove == "paper") {
+                winner="player"; }
+            if (playerMove == "scissors") {
+                winner="computer"; }
+            break; 
+        case "paper":
+            if (playerMove == "rock") {
+                winner="computer"; }
+            if (playerMove == "paper") {
+                winner="draw"; }
+            if (playerMove == "scissors") {
+                winner="player"; }
+            break; 
+        case "scissors":
+            if (playerMove == "rock") {
+                winner="player"; }
+            if (playerMove == "paper") {
+                winner="computer"; }
+            if (playerMove == "scissors") {
+                winner="draw"; }
+            break;  
+        default: break;
+    }
+}
 
 /*Playing multiple rounds*/
