@@ -81,3 +81,10 @@ function playRound(rounds) {
     }
 }
 
+let x = getComputerMove;
+let y = getPlayerMove;
+console.log(x);
+console.log(y);
+
+let victor = decideWinner(x,y);
+console.log(victor);
