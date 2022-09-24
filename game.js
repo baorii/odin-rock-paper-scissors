@@ -1,8 +1,8 @@
 /*randomising computer's move*/
 function getComputerMove() {
-    let x = Math.random(2) /*0 based indexing?*/
+    let x = Math.random() + Math.random();
     console.log(x)
-    let move = ""
+    let move = "";
     switch (x) {
         case 0: 
             move = "Rock"; break;
@@ -88,3 +88,5 @@ console.log(y);
 
 let victor = decideWinner(x,y);
 console.log(victor);
+
+document.getElementById("insert").innerHTML = getComputerMove();
