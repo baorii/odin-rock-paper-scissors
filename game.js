@@ -1,7 +1,8 @@
 /*randomising computer's move*/
 function getComputerMove() {
-    let x = Math.random(3) + 1;
-    console.log(x)
+    let x = Math.floor(Math.random() * 3);
+    console.log("Number Generated is " + x)
+    
     let move = "";
     switch (x) {
         case 0: 
@@ -13,6 +14,8 @@ function getComputerMove() {
         default: 
             move = "Rock"; break;
     }
+    console.log("Number Generated is " + x) 
+    console.log("Computer Move is " + move) 
     return move
 }
 
@@ -24,7 +27,7 @@ function getPlayerMove() {
     while(check) {
         input = prompt("Enter your move: Rock, Paper or Sciccors")
         let move = input.toLowerCase();
-        alert(`Your move is ${move}`);
+        alert(`Your move is ${move}`); // if backticks are 
         
         switch (move) {
             case "rock": 
