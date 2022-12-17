@@ -29,14 +29,13 @@ function getPlayerMove() {
         
         switch (move) {
             case "rock": 
-                check=false; 
-                break;
-                
+                check=false; break;
             case "paper": 
                 check=false; break;
             case "scissors": 
                 check=false; break;
             default: 
+                alert('Invalid. \n Enter a valid move!')
                  break;
     }
 }
@@ -86,15 +85,20 @@ function playRound(rounds) {
         alert(`Round ${i+1} Begins`)
         let x = getComputerMove()
         let y = getPlayerMove()
+        console.log(`Computer move is ${x}`);
+        console.log(`Player move is ${y}`);
 
         let winner = decideWinner(x,y)
+        console.log(`Winner is ${winner}`);
 
         if (winner == 'player') {
             alert(`Round winner is ${winner}`)
             playerWins += 1
+            console.log(`Player win count: ${playerWins}`);
         }else if(winner == 'computer') {
             alert(`Round winner is ${winner}`)
             computerWins += 1
+            console.log(`Computer win count: ${computerWins}`);
         }else{
             alert('Round was a draw')
         }
