@@ -1,6 +1,6 @@
 /*randomising computer's move*/
 function getComputerMove() {
-    let x = Math.random() + Math.random();
+    let x = Math.random(3) + 1;
     console.log(x)
     let move = "";
     switch (x) {
@@ -19,13 +19,19 @@ function getComputerMove() {
 /*Obtaining Player's Move*/
 function getPlayerMove() {
     let check = true
-    let x 
+    let input = ""
+    let move = ""
     while(check) {
-        x = prompt("Enter your move: Rock, Paper or Sciccors")
-        move = x.toLowerCase
+        input = prompt("Enter your move: Rock, Paper or Sciccors")
+        let move = input.toLowerCase();
+        alert(`Your move is ${move}`);
+        
         switch (move) {
             case "rock": 
-                check=false; break;
+                check=false; 
+                alert("hi");
+                break;
+                
             case "paper": 
                 check=false; break;
             case "scissors": 
@@ -81,12 +87,10 @@ function playRound(rounds) {
     }
 }
 
-let x = getComputerMove;
-let y = getPlayerMove;
+let x = getComputerMove();
+let y = getPlayerMove();
 console.log(x);
 console.log(y);
 
 let victor = decideWinner(x,y);
 console.log(victor);
-
-document.getElementById("insert").innerHTML = getComputerMove();
