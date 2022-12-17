@@ -6,16 +6,14 @@ function getComputerMove() {
     let move = "";
     switch (x) {
         case 0: 
-            move = "Rock"; break;
+            move = "rock"; break;
         case 1: 
-            move = "Paper"; break;
+            move = "paper"; break;
         case 2: 
-            move = "Scissors"; break;
+            move = "scissors"; break;
         default: 
-            move = "Rock"; break;
+            move = "rock"; break;
     }
-    console.log("Number Generated is " + x) 
-    console.log("Computer Move is " + move) 
     return move
 }
 
@@ -26,13 +24,12 @@ function getPlayerMove() {
     let move = ""
     while(check) {
         input = prompt("Enter your move: Rock, Paper or Sciccors")
-        let move = input.toLowerCase();
-        alert(`Your move is ${move}`); // if backticks are 
+        move = input.toLowerCase();
+        alert(`Your move is ${move}`); // if backticks are used then ${} concatenation can be used
         
         switch (move) {
             case "rock": 
                 check=false; 
-                alert("hi");
                 break;
                 
             case "paper": 
@@ -81,19 +78,50 @@ function decideWinner(computerMove, playerMove) {
 
 /*Playing multiple rounds*/
 function playRound(rounds) {
+    playerWins = 0
+    computerWins = 0
+    
+
     for(let i=0; i<rounds; i++) {
+        alert(`Round ${i+1} Begins`)
         let x = getComputerMove()
         let y = getPlayerMove()
 
         let winner = decideWinner(x,y)
-        console.log(winner)
+
+        if (winner == 'player') {
+            alert(`Round winner is ${winner}`)
+            playerWins += 1
+        }else if(winner == 'computer') {
+            alert(`Round winner is ${winner}`)
+            computerWins += 1
+        }else{
+            alert('Round was a draw')
+        }
+        
+    }
+    alert('Results time:')
+    if (playerWins > computerWins){
+        alert(`Match winner is the Player`)
+    }else if(playerWins < computerWins){
+        alert(`Match winner is the Computer`)
+    }else{
+        alert('Match resulted in a draw')
     }
 }
 
+/*Testing*/
 let x = getComputerMove();
 let y = getPlayerMove();
-console.log(x);
-console.log(y);
+console.log(`Computer move is ${x}`);
+console.log(`Player move is ${y}`);
 
 let victor = decideWinner(x,y);
-console.log(victor);
+console.log(`Winner is ${victor}`);
+alert(`Winner is ${victor}`);
+
+/*Culmination*/
+let rounds = parseInt(prompt('How many rounds would you like to play?'))
+playRound(rounds);
+
+
