@@ -87,14 +87,15 @@ function playRound() {
 
     if (winner == 'player') {
         alert(`Round winner is ${winner}`)
-        playerWins += 1
+        return 0
         console.log(`Player win count: ${playerWins}`);
     }else if(winner == 'computer') {
         alert(`Round winner is ${winner}`)
-        computerWins += 1
+        return 1
         console.log(`Computer win count: ${computerWins}`);
     }else{
         alert('Round was a draw')
+        return 3
     }
     
 }
@@ -106,7 +107,13 @@ function playMultiple(rounds){
 
     for(let i=0; i<rounds; i++) {
         alert(`Round ${i+1} Begins`)
-        playRound();
+        x = playRound();
+        if(x==0) {
+            playerWins +=1
+        }else if (x==1) {
+            computerWins += 1
+        }else {
+        }
     }
     alert('Results time:')
     if (playerWins > computerWins){
@@ -118,7 +125,7 @@ function playMultiple(rounds){
     }
 }
 
-/*Testing*/
+/*Testing
 let x = getComputerMove();
 let y = getPlayerMove();
 console.log(`Computer move is ${x}`);
@@ -128,14 +135,21 @@ let victor = decideWinner(x,y);
 console.log(`Winner is ${victor}`);
 alert(`Winner is ${victor}`);
 
-/*Culmination*/
+/*Culmination
 let rounds = parseInt(prompt('How many rounds would you like to play?'))
 playRound(rounds);
+*/
+
 
 //Button events
-const buttons = document.querySelectorAll('button');
-buttons.forEach(buttons); {
-    buttons.addEventListener('click', () => playRounds(buttons.id));
-}
+//const buttons = document.querySelectorAll('button');
+//buttons.forEach((button) => {
+//    button.addEventListener('click', () => { alert(button.id); } );
+//});
 
+const btn = document.querySelectorAll('button');
+
+btn.forEach((btn) => {
+    btn.addEventListener('click', () => {alert(btn.id);} )
+})
 
