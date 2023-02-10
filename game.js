@@ -75,34 +75,38 @@ function decideWinner(computerMove, playerMove) {
     return winner;
 }
 
+/*Playing a round*/
+function playRound() {
+    let x = getComputerMove()
+    let y = getPlayerMove()
+    console.log(`Computer move is ${x}`);
+    console.log(`Player move is ${y}`);
+
+    let winner = decideWinner(x,y)
+    console.log(`Winner is ${winner}`);
+
+    if (winner == 'player') {
+        alert(`Round winner is ${winner}`)
+        playerWins += 1
+        console.log(`Player win count: ${playerWins}`);
+    }else if(winner == 'computer') {
+        alert(`Round winner is ${winner}`)
+        computerWins += 1
+        console.log(`Computer win count: ${computerWins}`);
+    }else{
+        alert('Round was a draw')
+    }
+    
+}
+
 /*Playing multiple rounds*/
-function playRound(rounds) {
+function playMultiple(rounds){
     playerWins = 0
     computerWins = 0
-    
 
     for(let i=0; i<rounds; i++) {
         alert(`Round ${i+1} Begins`)
-        let x = getComputerMove()
-        let y = getPlayerMove()
-        console.log(`Computer move is ${x}`);
-        console.log(`Player move is ${y}`);
-
-        let winner = decideWinner(x,y)
-        console.log(`Winner is ${winner}`);
-
-        if (winner == 'player') {
-            alert(`Round winner is ${winner}`)
-            playerWins += 1
-            console.log(`Player win count: ${playerWins}`);
-        }else if(winner == 'computer') {
-            alert(`Round winner is ${winner}`)
-            computerWins += 1
-            console.log(`Computer win count: ${computerWins}`);
-        }else{
-            alert('Round was a draw')
-        }
-        
+        playRound();
     }
     alert('Results time:')
     if (playerWins > computerWins){
@@ -127,5 +131,11 @@ alert(`Winner is ${victor}`);
 /*Culmination*/
 let rounds = parseInt(prompt('How many rounds would you like to play?'))
 playRound(rounds);
+
+//Button events
+const buttons = document.querySelectorAll('button');
+buttons.forEach(buttons); {
+    buttons.addEventListener('click', () => playRounds(buttons.id));
+}
 
 
