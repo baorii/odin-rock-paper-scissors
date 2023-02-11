@@ -101,11 +101,9 @@ function playRound(btnID) {
     if (winner == 'player') {
         alert(`Round winner is ${winner}`)
         return 0
-        
     }else if(winner == 'computer') {
         alert(`Round winner is ${winner}`)
         return 1
-        
     }else{
         alert('Round was a draw')
         return 3
@@ -114,11 +112,12 @@ function playRound(btnID) {
 }
 
 /*Playing multiple rounds*/
-function playMultiple(rounds){
+function playToFiveWins(){
     playerWins = 0
     computerWins = 0
+    draws = 0
 
-    for(let i=0; i<rounds; i++) {
+    while(playerWins != 5 || copmuterWins != 5) {
         alert(`Round ${i+1} Begins`)
         x = playRound();
         if(x==0) {
@@ -128,8 +127,11 @@ function playMultiple(rounds){
             computerWins += 1
             console.log(`Computer win count: ${computerWins}`);
         }else {
+            draws += 1
+            console.log(`Draw count: ${draws}`);
         }
     }
+
     alert('Results time:')
     if (playerWins > computerWins){
         alert(`Match winner is the Player`)
