@@ -76,9 +76,9 @@ function decideWinner(computerMove, playerMove) {
 }
 
 /*Playing a round*/
-function playRound() {
+function playRound(btnID) {
     let x = getComputerMove()
-    let y = getPlayerMove()
+    let y = btnID
     console.log(`Computer move is ${x}`);
     console.log(`Player move is ${y}`);
 
@@ -142,14 +142,7 @@ playRound(rounds);
 
 
 //Button events
-//const buttons = document.querySelectorAll('button');
-//buttons.forEach((button) => {
-//    button.addEventListener('click', () => { alert(button.id); } );
-//});
-
-const btn = document.querySelectorAll('button');
-
-btn.forEach((btn) => {
-    btn.addEventListener('click', () => {alert(btn.id);} )
-})
-
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    button.addEventListener('click', () => { playRound(button.id); } );
+});
