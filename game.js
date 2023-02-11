@@ -79,20 +79,33 @@ function decideWinner(computerMove, playerMove) {
 function playRound(btnID) {
     let x = getComputerMove()
     let y = btnID
-    console.log(`Computer move is ${x}`);
-    console.log(`Player move is ${y}`);
+
+    const insertDiv = document.querySelector('#insert');
+
+    const computerMove = document.createElement('p');
+    const playerMove = document.createElement('p');
+
+    computerMove.textContent = (`Computer move is ${x}`);
+    playerMove.textContent = (`Player move is ${y}`);
+    
+    insertDiv.appendChild(computerMove);
+    insertDiv.appendChild(playerMove);
+
 
     let winner = decideWinner(x,y)
-    console.log(`Winner is ${winner}`);
+
+    const roundWinner = document.createElement('p');
+    roundWinner.textContent = (`Winner is ${winner}`);
+    insertDiv.appendChild(roundWinner);
 
     if (winner == 'player') {
         alert(`Round winner is ${winner}`)
         return 0
-        console.log(`Player win count: ${playerWins}`);
+        
     }else if(winner == 'computer') {
         alert(`Round winner is ${winner}`)
         return 1
-        console.log(`Computer win count: ${computerWins}`);
+        
     }else{
         alert('Round was a draw')
         return 3
@@ -110,8 +123,10 @@ function playMultiple(rounds){
         x = playRound();
         if(x==0) {
             playerWins +=1
+            console.log(`Player win count: ${playerWins}`);
         }else if (x==1) {
             computerWins += 1
+            console.log(`Computer win count: ${computerWins}`);
         }else {
         }
     }
