@@ -76,12 +76,16 @@ function decideWinner(computerMove, playerMove) {
 }
 
 playerWins = 0
-    computerWins = 0
-    draws = 0
+computerWins = 0
+draws = 0
+
+i = 0;  
 
 
 /*Playing a round*/
 function playRound(btnID) {
+    alert(`Round ${i+1} Begins`)
+
     let x = getComputerMove()
     let y = btnID
 
@@ -114,38 +118,29 @@ function playRound(btnID) {
     }else{
         alert('Round was a draw')
         draws += 1
+        console.log(`Draw count: ${draws}`);
     }
+
+    i++;
     
 }
 
-/*Playing multiple rounds*/
+/*Stopping at 5 Wins*/
     
-    
-    let i = 0;
 
-    while(playerWins != 5 || copmuterWins != 5) {
-        alert(`Round ${i+1} Begins`)
-        if(x==0) {
-            playerWins +=1
-            
-        }else if (x==1) {
-            computerWins += 1;
-            
-        }else {
-            draws += 1
-            console.log(`Draw count: ${draws}`);
+
+    if(playerWins == 5 || computerWins == 5) {
+        alert('Results time:')
+        if (playerWins > computerWins){
+            alert(`Match winner is the Player`)
+        }else if(playerWins < computerWins){
+            alert(`Match winner is the Computer`)
+        }else{
+            alert('Match resulted in a draw')
         }
-        i++
     }
 
-    alert('Results time:')
-    if (playerWins > computerWins){
-        alert(`Match winner is the Player`)
-    }else if(playerWins < computerWins){
-        alert(`Match winner is the Computer`)
-    }else{
-        alert('Match resulted in a draw')
-    }
+    
 
 
 
