@@ -80,11 +80,11 @@ computerWins = 0
 draws = 0
 
 i = 0;  
-
+alert(`Round ${i+1} Begins`)
 
 /*Playing a round*/
 function playRound(btnID) {
-    alert(`Round ${i+1} Begins`)
+    
 
     let x = getComputerMove()
     let y = btnID
@@ -121,7 +121,8 @@ function playRound(btnID) {
         console.log(`Draw count: ${draws}`);
     }
 
-    i++;
+    ++i;
+    alert(`Round ${i+1} Begins`)
     
 }
 
