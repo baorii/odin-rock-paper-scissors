@@ -75,7 +75,10 @@ function decideWinner(computerMove, playerMove) {
     return winner;
 }
 
-let x = 0;
+playerWins = 0
+    computerWins = 0
+    draws = 0
+
 
 /*Playing a round*/
 function playRound(btnID) {
@@ -102,22 +105,21 @@ function playRound(btnID) {
 
     if (winner == 'player') {
         alert(`Round winner is ${winner}`)
-        x = 0
+        playerWins += 1
+        document.getElementById('player').textContent = `Player win count: ${playerWins}`;
     }else if(winner == 'computer') {
         alert(`Round winner is ${winner}`)
-        x = 1
+        computerWins += 1;
+        document.getElementById('computer').textContent = `Computer win count: ${computerWins}`;
     }else{
         alert('Round was a draw')
-        x = 3
+        draws += 1
     }
     
 }
 
 /*Playing multiple rounds*/
-function playToFiveWins(){
-    playerWins = 0
-    computerWins = 0
-    draws = 0
+    
     
     let i = 0;
 
@@ -125,10 +127,10 @@ function playToFiveWins(){
         alert(`Round ${i+1} Begins`)
         if(x==0) {
             playerWins +=1
-            document.getElementById('player').textContent = `Player win count: ${playerWins}`;
+            
         }else if (x==1) {
             computerWins += 1;
-            document.getElementById('computer').textContent = "Computer win count: ${computerWins}";
+            
         }else {
             draws += 1
             console.log(`Draw count: ${draws}`);
@@ -144,9 +146,8 @@ function playToFiveWins(){
     }else{
         alert('Match resulted in a draw')
     }
-}
 
-playToFiveWins();
+
 
 /*Testing
 let x = getComputerMove();
